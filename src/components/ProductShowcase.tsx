@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bot, MessageSquare, ChevronLeft, ChevronRight, Lock } from 'lucide-react';
+import { Bot, MessageSquare, ChevronLeft, ChevronRight, Lock, Hourglass } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ProductShowcaseProps {
@@ -12,19 +12,22 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
 
   const characters = [
     {
+      name: "Nami",
+      description: "The fearless navigator, ready to map out your meme-coin journey!",
+      image: "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?auto=format&fit=crop&q=80",
+      comingSoon: false
+    },
+    {
       name: "Luffy",
-      description: "The ambitious Straw Hat captain with the power of the Gomu Gomu no Mi",
-      image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80"
+      description: "Captain of the meme-coin seas, with a boundless thirst for moonshots!",
+      image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80",
+      comingSoon: true
     },
     {
       name: "Zoro",
-      description: "The legendary swordsman with unmatched determination",
-      image: "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?auto=format&fit=crop&q=80"
-    },
-    {
-      name: "Nami",
-      description: "The skilled navigator with a passion for cartography",
-      image: "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?auto=format&fit=crop&q=80"
+      description: "Your dedicated HODLer and unstoppable warrior of the bull runs.",
+      image: "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?auto=format&fit=crop&q=80",
+      comingSoon: true
     }
   ];
 
@@ -36,7 +39,16 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
     setCurrentSlide((prev) => (prev - 1 + characters.length) % characters.length);
   };
 
-  const getActionButton = () => {
+  const getActionButton = (character: typeof characters[0]) => {
+    if (character.comingSoon) {
+      return (
+        <button className="bg-gray-500 cursor-not-allowed w-full py-3 rounded-lg flex items-center justify-center space-x-2">
+          <Hourglass className="w-5 h-5" />
+          <span>Coming Soon</span>
+        </button>
+      );
+    }
+
     if (!isWalletConnected) {
       return (
         <button className="bg-gray-700 cursor-not-allowed w-full py-3 rounded-lg flex items-center justify-center space-x-2">
@@ -58,10 +70,12 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
     }
 
     return (
-      <button className="bg-purple-600 hover:bg-purple-700 w-full py-3 rounded-lg flex items-center justify-center space-x-2">
-        <MessageSquare className="w-5 h-5" />
-        <span>Start Chatting</span>
-      </button>
+      <a href="https://xyz.com" target="_blank" rel="noopener noreferrer" className="w-full">
+        <button className="bg-purple-600 hover:bg-purple-700 w-full py-3 rounded-lg flex items-center justify-center space-x-2">
+          <MessageSquare className="w-5 h-5" />
+          <span>Start Chatting</span>
+        </button>
+      </a>
     );
   };
 
@@ -69,9 +83,9 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
     <section className="py-20 container mx-auto px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-purple-900">Experience One Piece AI Chat</h2>
+          <h2 className="text-4xl font-bold mb-4 text-purple-900">Explore the World of One Piece AI!</h2>
           <p className="text-purple-800 max-w-2xl mx-auto">
-            Connect with your favorite One Piece characters through advanced AI technology
+            Sail into the crypto seas with your favorite One Piece crew members, powered by next-gen AI.
           </p>
         </div>
 
@@ -79,12 +93,12 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
           <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg border border-pink-200">
             <div className="flex items-center space-x-4 mb-6">
               <Bot className="w-8 h-8 text-pink-500" />
-              <h3 className="text-2xl font-bold text-purple-900">AI Chatbot</h3>
+              <h3 className="text-2xl font-bold text-purple-900">Your Crypto Navigator</h3>
             </div>
             <p className="text-purple-800 mb-6">
-              Engage in natural conversations with AI-powered One Piece characters
+              Chat with AI-powered One Piece characters for insights, laughs, and a bit of adventure!
             </p>
-            {getActionButton()}
+            {getActionButton(characters[currentSlide])}
           </div>
 
           <div className="relative">
@@ -103,10 +117,10 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent flex flex-col justify-end p-8">
                     <div className="mb-4">
-                      <h3 className="text-2xl font-bold mb-2">{character.name}</h3>
+                      <h3 className="text-2xl font-bold mb-2 text-white">{character.name}</h3>
                       <p className="text-pink-100">{character.description}</p>
                     </div>
-                    {getActionButton()}
+                    {getActionButton(character)}
                   </div>
                 </div>
               ))}

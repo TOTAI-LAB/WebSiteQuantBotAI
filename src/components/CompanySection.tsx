@@ -5,23 +5,23 @@ function CompanySection() {
   const features = [
     {
       icon: <Brain className="w-8 h-8" />,
-      title: "Advanced AI Technology",
-      description: "Our proprietary AI models are specifically trained on anime and manga content for authentic character interactions."
+      title: "Crypto-Driven AI Technology",
+      description: "Our AI models blend anime storytelling with decentralized crypto concepts, creating immersive and authentic character interactions."
     },
     {
       icon: <Sparkles className="w-8 h-8" />,
-      title: "Character Personality",
-      description: "Each AI character maintains consistent personality traits and memories throughout conversations."
+      title: "Lifelike Anime Personalities",
+      description: "Each character embodies consistent personality traits and memories, evolving with interactions."
     },
     {
       icon: <Code2 className="w-8 h-8" />,
-      title: "Natural Language Processing",
-      description: "State-of-the-art NLP ensures smooth, context-aware conversations in multiple languages."
+      title: "Blockchain Integration",
+      description: "Our characters interact with blockchain elements, bringing crypto directly into their personalities and conversations."
     },
     {
       icon: <Palette className="w-8 h-8" />,
-      title: "Custom Character Creation",
-      description: "Create and train your own anime characters with unique personalities and backstories."
+      title: "Personalized Character Creation",
+      description: "Customize your own anime-inspired characters, integrating them into your crypto journey."
     }
   ];
 
@@ -29,9 +29,9 @@ function CompanySection() {
     <section className="py-20 container mx-auto px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Our Expertise</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Pioneering the future of AI-powered character interactions through cutting-edge technology
+          <h2 className="text-4xl font-bold mb-4 text-purple-900">Our Expertise</h2>
+          <p className="text-purple-800 max-w-2xl mx-auto">
+            Bridging anime and the decentralized world through AI-powered interactions
           </p>
         </div>
 
@@ -39,34 +39,34 @@ function CompanySection() {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-gradient-to-b from-purple-900/50 to-black/50 rounded-xl p-8 backdrop-blur-lg border border-purple-500/20 hover:scale-105 transition-transform"
+              className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg border border-pink-200"
             >
-              <div className="text-purple-400 mb-6">{feature.icon}</div>
-              <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
+              <div className="text-pink-500 mb-6">{feature.icon}</div>
+              <h3 className="text-xl font-bold mb-4 text-purple-900">{feature.title}</h3>
+              <p className="text-purple-800">{feature.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-b from-purple-900/50 to-black/50 rounded-xl p-8 backdrop-blur-lg border border-purple-500/20">
+        <div className="mt-16 bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg border border-pink-200">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Why Choose AnimeAI Chat?</h3>
-              <p className="text-gray-400 mb-6">
-                We combine cutting-edge AI technology with deep anime knowledge to create the most authentic and engaging character interactions possible. Our team of AI researchers and anime enthusiasts work together to push the boundaries of what's possible in AI-powered entertainment.
+              <h3 className="text-2xl font-bold mb-4 text-purple-900">Why Choose QuantBot.ai?</h3>
+              <p className="text-purple-800 mb-6">
+                QuantBot.ai is pioneering anime character interactions with a crypto-centric edge. Our team combines advanced AI technology with a passion for anime and decentralized principles to bring characters to life in ways that align with the values of the crypto community.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-4 text-purple-800">
                 <li className="flex items-center space-x-3">
                   <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
-                  <span>Industry-leading AI technology</span>
+                  <span>Crypto-integrated AI technology</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
-                  <span>Dedicated anime expertise</span>
+                  <span>Anime expertise with blockchain insight</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
-                  <span>Active community involvement</span>
+                  <span>Community-driven development</span>
                 </li>
               </ul>
             </div>

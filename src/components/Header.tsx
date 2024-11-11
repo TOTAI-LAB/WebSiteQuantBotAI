@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Wallet2, Loader2 } from 'lucide-react';
+import { Wallet2, Loader2, CheckCircle } from 'lucide-react';
 
 interface HeaderProps {
   isWalletConnected: boolean;
   onConnectWallet: () => void;
   isConnecting: boolean;
   walletAddress?: string | null;
-  isVerified: boolean; // Added isVerified to props
+  isVerified: boolean;
 }
 
 function Header({ isWalletConnected, onConnectWallet, isConnecting, walletAddress, isVerified }: HeaderProps) {
@@ -22,7 +22,7 @@ function Header({ isWalletConnected, onConnectWallet, isConnecting, walletAddres
         <div className="flex items-center space-x-8">
           <Link to="/">
             <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-              AnimeAI Chat
+              QuantBot.AI
             </h1>
           </Link>
           <nav className="hidden md:flex space-x-6">
@@ -36,7 +36,7 @@ function Header({ isWalletConnected, onConnectWallet, isConnecting, walletAddres
               to="/referrals" 
               className={`transition-colors hover:text-purple-400 ${location.pathname === '/referrals' ? 'text-purple-400' : 'text-gray-300'}`}
             >
-              Referrals
+              LeaderBoard
             </Link>
           </nav>
         </div>
@@ -61,6 +61,9 @@ function Header({ isWalletConnected, onConnectWallet, isConnecting, walletAddres
               ? formatAddress(walletAddress!)
               : 'Connect Wallet'}
           </span>
+          {isWalletConnected && isVerified && (
+            <CheckCircle className="w-5 h-5 text-green-400 ml-1" aria-label="Verified" />
+          )}
         </button>
       </div>
     </header>
