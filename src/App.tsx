@@ -10,7 +10,7 @@ import { useWallet } from './hooks/useWallet';
 import { useReferral } from './hooks/useReferral';
 
 function App() {
-  const { address, isConnecting, connectWallet } = useWallet();
+  const { address, isConnecting, connectSolanaWallet } = useWallet();
   const { isVerified } = useReferral(address);
 
   const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -37,7 +37,7 @@ function App() {
           <Toaster position="top-right" />
           <Header 
             isWalletConnected={!!address} 
-            onConnectWallet={connectWallet}
+            onConnectWallet={connectSolanaWallet}
             isConnecting={isConnecting}
             walletAddress={address}
             isVerified={isVerified}

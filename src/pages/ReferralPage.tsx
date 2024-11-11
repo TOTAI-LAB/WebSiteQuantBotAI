@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Trophy, Users } from 'lucide-react';
 import { useReferral } from '../hooks/useReferral';
+import toast from 'react-hot-toast';
 
 interface ReferralPageProps {
   isWalletConnected: boolean;
-  walletAddress?: string | null;
+  walletAddress: string | null;
+  isVerified: boolean; // Add this if missing
 }
 
 function ReferralPage({ isWalletConnected, walletAddress }: ReferralPageProps) {

@@ -1,11 +1,11 @@
 import { useState, useCallback, useEffect } from 'react';
-import { BrowserProvider, JsonRpcSigner } from 'ethers';
 import toast from 'react-hot-toast';
 
 export interface WalletState {
   address: string | null;
   isConnecting: boolean;
-  signer: JsonRpcSigner | null;
+  signer: null; // Solana doesn’t use ethers.js signer, so set it to null
+  walletType: 'solana' | null;
 }
 
 export function useWallet() {
@@ -13,47 +13,51 @@ export function useWallet() {
     address: null,
     isConnecting: false,
     signer: null,
+    walletType: null,
   });
 
   const checkWalletConnection = useCallback(async () => {
-    if (typeof window.ethereum === 'undefined') {
-      return false;
-    }
-
-    try {
-      const provider = new BrowserProvider(window.ethereum);
-      const accounts = await provider.listAccounts();
-      
-      if (accounts.length > 0) {
-        const signer = await provider.getSigner();
-        const address = await signer.getAddress();
-        setWalletState({ address, isConnecting: false, signer });
-        return true;
+    if (window.solana && (window.solana.isPhantom || window.solana.isSolflare)) {
+      // Solana wallet (Phantom, Solflare)
+      try {
+        const response = await window.solana.connect({ onlyIfTrusted: true });
+        if (response && response.publicKey) {
+          setWalletState({
+            address: response.publicKey.toString(),
+            isConnecting: false,
+            signer: null,
+            walletType: 'solana',
+          });
+          return true;
+        }
+      } catch (error) {
+        console.error('Error checking Solana wallet connection:', error);
       }
-    } catch (error) {
-      console.error('Error checking wallet connection:', error);
     }
     return false;
   }, []);
 
-  const connectWallet = async () => {
-    if (typeof window.ethereum === 'undefined') {
-      toast.error('Please install MetaMask to connect your wallet!');
+  const connectSolanaWallet = async () => {
+    if (!(window.solana && (window.solana.isPhantom || window.solana.isSolflare))) {
+      toast.error('Please install a supported Solana wallet (e.g., Phantom or Solflare)!');
       return;
     }
 
     try {
       setWalletState(prev => ({ ...prev, isConnecting: true }));
-      const provider = new BrowserProvider(window.ethereum);
-      await provider.send('eth_requestAccounts', []);
-      const signer = await provider.getSigner();
-      const address = await signer.getAddress();
-      
-      setWalletState({ address, isConnecting: false, signer });
-      toast.success('Wallet connected successfully!');
+      const response = await window.solana.connect();
+      if (response && response.publicKey) {
+        setWalletState({
+          address: response.publicKey.toString(),
+          isConnecting: false,
+          signer: null,
+          walletType: 'solana',
+        });
+        toast.success('Solana wallet connected successfully!');
+      }
     } catch (error) {
-      console.error('Error connecting wallet:', error);
-      toast.error('Failed to connect wallet. Please try again.');
+      console.error('Error connecting Solana wallet:', error);
+      toast.error('Failed to connect Solana wallet. Please try again.');
       setWalletState(prev => ({ ...prev, isConnecting: false }));
     }
   };
@@ -61,34 +65,41 @@ export function useWallet() {
   useEffect(() => {
     checkWalletConnection();
 
-    if (typeof window.ethereum !== 'undefined') {
-      window.ethereum.on('accountsChanged', () => {
+    if (window.solana && (window.solana.isPhantom || window.solana.isSolflare)) {
+      window.solana.on('connect', () => {
         checkWalletConnection();
       });
-
-      window.ethereum.on('chainChanged', () => {
-        window.location.reload();
+      window.solana.on('disconnect', () => {
+        setWalletState({
+          address: null,
+          isConnecting: false,
+          signer: null,
+          walletType: null,
+        });
       });
     }
 
     return () => {
-      if (typeof window.ethereum !== 'undefined') {
-        window.ethereum.removeAllListeners();
+      if (window.solana && (window.solana.isPhantom || window.solana.isSolflare)) {
+        window.solana.removeAllListeners();
       }
     };
   }, [checkWalletConnection]);
 
   return {
     ...walletState,
-    connectWallet,
+    connectSolanaWallet,
   };
 }
 
-// Add TypeScript declarations for window.ethereum
+// Add TypeScript declarations for window.solana to include multiple wallets
 declare global {
   interface Window {
-    ethereum?: {
-      request: (args: { method: string; params?: any[] }) => Promise<any>;
+    solana?: {
+      isPhantom?: boolean;
+      isSolflare?: boolean;
+      connect: (options?: { onlyIfTrusted: boolean }) => Promise<{ publicKey: { toString: () => string } }>;
+      disconnect: () => void;
       on: (event: string, callback: (...args: any[]) => void) => void;
       removeAllListeners: () => void;
     };

@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { Share2, Trophy, Users } from 'lucide-react';
+import { useReferral } from '../hooks/useReferral';
 
 interface ReferralSectionProps {
   isWalletConnected: boolean;
+  walletAddress: string | null;
 }
 
-function ReferralSection({ isWalletConnected }: ReferralSectionProps) {
-  const [referralCode] = useState('ANIME' + Math.random().toString(36).substring(2, 8).toUpperCase());
+function ReferralSection({ isWalletConnected, walletAddress }: ReferralSectionProps) {
+  const { referralCode, submitReferralCode, isVerified } = useReferral(walletAddress);
+  const [friendCode, setFriendCode] = useState('');
+
+  const handleReferralSubmit = () => {
+    submitReferralCode(friendCode);
+    setFriendCode(''); // Clear the input after submission
+  };
 
   return (
     <section className="py-20 container mx-auto px-4 bg-gradient-to-b from-black/50 to-purple-900/20">
@@ -70,9 +78,14 @@ function ReferralSection({ isWalletConnected }: ReferralSectionProps) {
                   <input
                     type="text"
                     placeholder="Enter referral code"
+                    value={friendCode}
+                    onChange={(e) => setFriendCode(e.target.value)}
                     className="flex-1 bg-black/50 border border-purple-500/30 rounded-l-lg px-4 py-2"
                   />
-                  <button className="bg-purple-600 hover:bg-purple-700 px-4 rounded-r-lg">
+                  <button
+                    onClick={handleReferralSubmit}
+                    className="bg-purple-600 hover:bg-purple-700 px-4 rounded-r-lg"
+                  >
                     Submit
                   </button>
                 </div>

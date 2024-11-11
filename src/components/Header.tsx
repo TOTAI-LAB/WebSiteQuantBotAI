@@ -7,9 +7,10 @@ interface HeaderProps {
   onConnectWallet: () => void;
   isConnecting: boolean;
   walletAddress?: string | null;
+  isVerified: boolean; // Added isVerified to props
 }
 
-function Header({ isWalletConnected, onConnectWallet, isConnecting, walletAddress }: HeaderProps) {
+function Header({ isWalletConnected, onConnectWallet, isConnecting, walletAddress, isVerified }: HeaderProps) {
   const location = useLocation();
   const formatAddress = (address: string) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;

@@ -15,7 +15,15 @@ interface ReferralUser {
 }
 
 export function useReferral(walletAddress: string | null) {
-  const [referralCode] = useState('ANIME' + Math.random().toString(36).substring(2, 8).toUpperCase());
+  const [referralCode] = useState(() => {
+    let code = localStorage.getItem(`referral_code_${walletAddress}`);
+    if (!code) {
+      code = 'ANIME' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      localStorage.setItem(`referral_code_${walletAddress}`, code);
+    }
+    return code;
+  });
+  
   const [stats, setStats] = useState<ReferralStats>({ points: 0, referrals: 0, rank: 0, isVerified: false });
   const [leaderboard, setLeaderboard] = useState<ReferralUser[]>([]);
   const [isVerified, setIsVerified] = useState(false);
@@ -61,23 +69,19 @@ export function useReferral(walletAddress: string | null) {
       return;
     }
 
-    // Update referrer's stats
     const referrerStats = JSON.parse(localStorage.getItem(`referral_stats_${referrerAddress}`) || '{"points": 0, "referrals": 0, "rank": 0, "isVerified": true}');
     referrerStats.points += 100;
     referrerStats.referrals += 1;
     localStorage.setItem(`referral_stats_${referrerAddress}`, JSON.stringify(referrerStats));
 
-    // Update referred user's stats
     const newStats = { ...stats, points: stats.points + 50, isVerified: true };
     setStats(newStats);
     setIsVerified(true);
     localStorage.setItem(`referral_stats_${walletAddress}`, JSON.stringify(newStats));
 
-    // Mark user as referred
     referredUsers[walletAddress] = true;
     localStorage.setItem('referred_users', JSON.stringify(referredUsers));
 
-    // Update leaderboard
     const updatedLeaderboard = [...leaderboard];
     const referrerIndex = updatedLeaderboard.findIndex(user => user.address === referrerAddress);
     if (referrerIndex >= 0) {
@@ -86,9 +90,20 @@ export function useReferral(walletAddress: string | null) {
         points: referrerStats.points,
         referrals: referrerStats.referrals,
       };
+    } else {
+      updatedLeaderboard.push({
+        address: referrerAddress,
+        points: referrerStats.points,
+        referrals: referrerStats.referrals,
+      });
     }
     setLeaderboard(updatedLeaderboard);
     localStorage.setItem('referral_leaderboard', JSON.stringify(updatedLeaderboard));
+
+    console.log('Referral Code:', code);
+    console.log('Wallet Address:', walletAddress);
+    console.log('Referrer Address:', referrerAddress);
+    console.log('Referred Users:', referredUsers);
 
     toast.success('Referral code applied successfully! You can now access the chatbot.');
   };
