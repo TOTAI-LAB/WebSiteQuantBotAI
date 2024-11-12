@@ -70,7 +70,7 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
     }
 
     return (
-      <a href="https://xyz.com" target="_blank" rel="noopener noreferrer" className="w-full">
+      <a href="https://nami-ai.onrender.com" target="_blank" rel="noopener noreferrer" className="w-full">
         <button className="bg-purple-600 hover:bg-purple-700 w-full py-3 rounded-lg flex items-center justify-center space-x-2">
           <MessageSquare className="w-5 h-5" />
           <span>Start Chatting</span>
