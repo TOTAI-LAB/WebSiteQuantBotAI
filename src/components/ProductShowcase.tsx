@@ -93,7 +93,7 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
           <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg border border-pink-200">
             <div className="flex items-center space-x-4 mb-6">
               <Bot className="w-8 h-8 text-pink-500" />
-              <h3 className="text-2xl font-bold text-purple-900">Your Crypto Navigator</h3>
+              <h3 className="text-2xl font-bold text-purple-900">AIgent Nami , Your Crypto Navigator</h3>
             </div>
             <p className="text-purple-800 mb-6">
               Chat with AI-powered One Piece characters for insights, laughs, and a bit of adventure!
