@@ -17,10 +17,10 @@ function ReferralSection({ isWalletConnected, walletAddress }: ReferralSectionPr
   };
 
   return (
-    <section className="py-20 container mx-auto px-4 bg-gradient-to-b from-black/50 to-purple-900/20">
+    <section className="py-20 container mx-auto px-4 bg-gradient-to-b from-pink-100 to-white">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4 text-purple-900">Referral Program</h2>
-        <p className="text-purple-800 max-w-2xl mx-auto">
+        <h2 className="text-4xl font-bold mb-4 text-pink-900">Referral Program</h2>
+        <p className="text-pink-800 max-w-2xl mx-auto">
           Invite friends and earn rewards together
         </p>
       </div>
@@ -30,23 +30,26 @@ function ReferralSection({ isWalletConnected, walletAddress }: ReferralSectionPr
           {
             icon: <Share2 className="w-8 h-8 text-pink-500" />,
             title: "Share",
-            description: "Invite friends using your unique code"
+            description: "Invite friends using your unique code",
           },
           {
             icon: <Users className="w-8 h-8 text-pink-500" />,
             title: "Connect",
-            description: "Friends join using your referral"
+            description: "Friends join using your referral",
           },
           {
             icon: <Trophy className="w-8 h-8 text-pink-500" />,
             title: "Earn",
-            description: "Both receive exclusive rewards"
-          }
+            description: "Both receive exclusive rewards",
+          },
         ].map((step, index) => (
-          <div key={index} className="bg-white/80 backdrop-blur-lg rounded-xl p-8 text-center shadow-lg border border-pink-200">
+          <div
+            key={index}
+            className="bg-white/80 backdrop-blur-lg rounded-xl p-8 text-center shadow-lg border border-pink-200"
+          >
             <div className="mb-6">{step.icon}</div>
-            <h3 className="text-xl font-bold mb-2 text-purple-900">{step.title}</h3>
-            <p className="text-purple-800">{step.description}</p>
+            <h3 className="text-xl font-bold mb-2 text-pink-900">{step.title}</h3>
+            <p className="text-pink-800">{step.description}</p>
           </div>
         ))}
       </div>
@@ -56,35 +59,35 @@ function ReferralSection({ isWalletConnected, walletAddress }: ReferralSectionPr
           {isWalletConnected ? (
             <>
               <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4 text-purple-900">Your Referral Code</h3>
+                <h3 className="text-xl font-bold mb-4 text-pink-900">Your Referral Code</h3>
                 <div className="flex">
                   <input
                     type="text"
                     value={referralCode}
                     readOnly
-                    className="flex-1 bg-black/50 border border-purple-500/30 rounded-l-lg px-4 py-2 text-purple-400"
+                    className="flex-1 bg-pink-50 border border-pink-300 rounded-l-lg px-4 py-2 text-pink-800"
                   />
                   <button
                     onClick={() => navigator.clipboard.writeText(referralCode)}
-                    className="bg-purple-600 hover:bg-purple-700 px-4 rounded-r-lg text-white"
+                    className="bg-pink-500 hover:bg-pink-600 px-4 rounded-r-lg text-white"
                   >
                     Copy
                   </button>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-4 text-purple-900">Enter Friend's Code</h3>
+                <h3 className="text-xl font-bold mb-4 text-pink-900">Enter Friend's Code</h3>
                 <div className="flex">
                   <input
                     type="text"
                     placeholder="Enter referral code"
                     value={friendCode}
                     onChange={(e) => setFriendCode(e.target.value)}
-                    className="flex-1 bg-black/50 border border-purple-500/30 rounded-l-lg px-4 py-2 text-purple-400"
+                    className="flex-1 bg-pink-50 border border-pink-300 rounded-l-lg px-4 py-2 text-pink-800"
                   />
                   <button
                     onClick={handleReferralSubmit}
-                    className="bg-purple-600 hover:bg-purple-700 px-4 rounded-r-lg text-white"
+                    className="bg-pink-500 hover:bg-pink-600 px-4 rounded-r-lg text-white"
                   >
                     Submit
                   </button>
@@ -93,10 +96,10 @@ function ReferralSection({ isWalletConnected, walletAddress }: ReferralSectionPr
             </>
           ) : (
             <div className="text-center py-8">
-              <p className="text-purple-800 mb-4">Connect your wallet to access the referral program</p>
+              <p className="text-pink-800 mb-4">Connect your wallet to access the referral program</p>
               <button
                 onClick={() => {}}
-                className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg text-white"
+                className="bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-lg text-white"
               >
                 Connect Wallet
               </button>

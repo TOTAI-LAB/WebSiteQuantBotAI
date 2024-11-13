@@ -4,21 +4,119 @@
 
 @layer base {
   body {
-    @apply antialiased;
+    @apply antialiased bg-gradient-to-b from-pink-100 via-pink-200 to-white text-gray-800;
   }
 }
 
 @layer utilities {
+  /* Neon Glow Pulse Animation */
   .animate-pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
+  .animate-pulse-slower {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Spinning Neon Rings */
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .animate-spin-reverse-slower {
+    animation: spin-reverse 12s linear infinite;
+  }
+
+  /* Glowing Particle Movement */
+  .animate-float {
+    animation: float 3s infinite ease-in-out;
+  }
+
+  /* Glowing Horizontal Lines */
+  .animate-glitch-horizontal {
+    animation: glitch-horizontal 5s linear infinite;
+  }
+
+  .animate-glitch-horizontal-delay-2s {
+    animation: glitch-horizontal 5s linear infinite;
+    animation-delay: 2s;
+  }
+
+  /* Glowing Borders */
+  .glow-border {
+    position: relative;
+    z-index: 1;
+    border: 2px solid transparent;
+    background-image: linear-gradient(black, black),
+      linear-gradient(45deg, #ff007f, #7d00ff, #00eaff);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    z-index: -1;
+    background: linear-gradient(45deg, #ff007f, #7d00ff, #00eaff, #ff007f);
+    filter: blur(10px);
+    border-radius: inherit;
+  }
+
+  /* Glitchy Background for Text */
+  .neon-text {
+    text-shadow: 0 0 5px #ff007f, 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 40px #ff007f;
+  }
 }
 
+/* Keyframes for Pulse */
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
   }
   50% {
     opacity: 0.8;
+  }
+}
+
+/* Keyframes for Spinning */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Keyframes for Glitch Movement */
+@keyframes glitch-horizontal {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+/* Keyframes for Floating */
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, -20px);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }

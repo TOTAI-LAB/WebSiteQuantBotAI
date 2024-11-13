@@ -56,8 +56,8 @@ function RoadmapSection() {
   return (
     <section className="py-20 container mx-auto px-4">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4 text-purple-900">Project Roadmap</h2>
-        <p className="text-purple-800 max-w-2xl mx-auto">
+        <h2 className="text-4xl font-bold mb-4 text-pink-900">Project Roadmap</h2>
+        <p className="text-pink-800 max-w-2xl mx-auto">
           Our journey to revolutionize anime character interactions
         </p>
       </div>
@@ -66,18 +66,18 @@ function RoadmapSection() {
         {milestones.map((milestone, index) => (
           <div
             key={index}
-            className="relative pl-8 pb-8 last:pb-0 before:content-[''] before:absolute before:left-[15px] before:top-8 before:w-[2px] before:h-[calc(100%-32px)] before:bg-purple-500/30 last:before:hidden"
+            className="relative pl-8 pb-8 last:pb-0 before:content-[''] before:absolute before:left-[15px] before:top-8 before:w-[2px] before:h-[calc(100%-32px)] before:bg-pink-500/30 last:before:hidden"
           >
             <div className="absolute left-0 top-1">
               {milestone.completed ? (
-                <CheckCircle className="w-8 h-8 text-purple-500" />
+                <CheckCircle className="w-8 h-8 text-pink-500" />
               ) : (
                 <Circle className="w-8 h-8 text-gray-500" />
               )}
             </div>
             <div className="bg-white/80 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-pink-200">
-              <h3 className="text-xl font-bold mb-2 text-purple-900">{milestone.title}</h3>
-              <p className="text-purple-800 drop-shadow-md">{milestone.description}</p>
+              <h3 className="text-xl font-bold mb-2 text-pink-900">{milestone.title}</h3>
+              <p className="text-pink-800 drop-shadow-md">{milestone.description}</p>
             </div>
           </div>
         ))}

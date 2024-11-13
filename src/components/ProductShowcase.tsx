@@ -15,20 +15,20 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
       name: "Nami",
       description: "The fearless navigator, ready to map out your meme-coin journey!",
       image: "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?auto=format&fit=crop&q=80",
-      comingSoon: false
+      comingSoon: false,
     },
     {
       name: "Luffy",
       description: "Captain of the meme-coin seas, with a boundless thirst for moonshots!",
       image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80",
-      comingSoon: true
+      comingSoon: true,
     },
     {
       name: "Zoro",
       description: "Your dedicated HODLer and unstoppable warrior of the bull runs.",
       image: "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?auto=format&fit=crop&q=80",
-      comingSoon: true
-    }
+      comingSoon: true,
+    },
   ];
 
   const nextSlide = () => {
@@ -42,7 +42,7 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
   const getActionButton = (character: typeof characters[0]) => {
     if (character.comingSoon) {
       return (
-        <button className="bg-gray-500 cursor-not-allowed w-full py-3 rounded-lg flex items-center justify-center space-x-2">
+        <button className="bg-pink-500 cursor-not-allowed w-full py-3 rounded-lg flex items-center justify-center space-x-2">
           <Hourglass className="w-5 h-5" />
           <span>Coming Soon</span>
         </button>
@@ -51,17 +51,17 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
 
     if (!isWalletConnected) {
       return (
-        <button className="bg-gray-700 cursor-not-allowed w-full py-3 rounded-lg flex items-center justify-center space-x-2">
+        <button className="bg-red-100 cursor-not-allowed w-full py-3 rounded-lg flex items-center justify-center space-x-2">
           <Lock className="w-5 h-5" />
-          <span>Connect Wallet to Chat</span>
+          <span>REVENUE SHARE</span>
         </button>
       );
     }
-    
+
     if (!isVerified) {
       return (
         <Link to="/referrals" className="w-full">
-          <button className="bg-pink-500 hover:bg-pink-600 w-full py-3 rounded-lg flex items-center justify-center space-x-2">
+          <button className="bg-red-100 hover:bg-pink-600 w-full py-3 rounded-lg flex items-center justify-center space-x-2">
             <Lock className="w-5 h-5" />
             <span>Enter Referral Code to Access</span>
           </button>
@@ -71,7 +71,7 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
 
     return (
       <a href="https://nami-ai.onrender.com" target="_blank" rel="noopener noreferrer" className="w-full">
-        <button className="bg-purple-600 hover:bg-purple-700 w-full py-3 rounded-lg flex items-center justify-center space-x-2">
+        <button className="bg-pink-100 hover:bg-pink-600 w-full py-3 rounded-lg flex items-center justify-center space-x-2">
           <MessageSquare className="w-5 h-5" />
           <span>Start Chatting</span>
         </button>
@@ -83,9 +83,9 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
     <section className="py-20 container mx-auto px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-purple-900">Explore the World of One Piece AI!</h2>
-          <p className="text-purple-800 max-w-2xl mx-auto">
-            Sail into the crypto seas with your favorite One Piece crew members, powered by next-gen AI.
+          <h2 className="text-4xl font-bold mb-4 text-pink-900">Powerful Sentient AiGENT NAMI</h2>
+          <p className="text-pink-800 max-w-2xl mx-auto">
+             Find out! Connect wallet to access, invite friends, PVP on leaderboards, Rev share, degen powered Sentient is Here! Sail into the crypto seas with your favorite One Piece crew members, powered by next-gen AI.
           </p>
         </div>
 
@@ -93,9 +93,9 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
           <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg border border-pink-200">
             <div className="flex items-center space-x-4 mb-6">
               <Bot className="w-8 h-8 text-pink-500" />
-              <h3 className="text-2xl font-bold text-purple-900">AIgent Nami , Your Crypto Navigator</h3>
+              <h3 className="text-2xl font-bold text-pink-900">UNLOCK NAMI</h3>
             </div>
-            <p className="text-purple-800 mb-6">
+            <p className="text-pink-800 mb-6">
               Chat with AI-powered One Piece characters for insights, laughs, and a bit of adventure!
             </p>
             {getActionButton(characters[currentSlide])}
@@ -115,7 +115,7 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
                     alt={character.name}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent flex flex-col justify-end p-8">
+                  <div className="absolute inset-0 bg-gradient-to-t from-pink-900/80 to-transparent flex flex-col justify-end p-8">
                     <div className="mb-4">
                       <h3 className="text-2xl font-bold mb-2 text-white">{character.name}</h3>
                       <p className="text-pink-100">{character.description}</p>
@@ -128,14 +128,14 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
 
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-purple-900 p-2 rounded-full backdrop-blur-lg transition-colors"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-pink-900 p-2 rounded-full backdrop-blur-lg transition-colors"
               aria-label="Previous character"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-purple-900 p-2 rounded-full backdrop-blur-lg transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-pink-900 p-2 rounded-full backdrop-blur-lg transition-colors"
               aria-label="Next character"
             >
               <ChevronRight className="w-6 h-6" />

@@ -25,35 +25,55 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-b from-pink-200 via-purple-300 to-pink-200 text-gray-800 relative">
-        <div 
-          className="fixed inset-0 bg-cover bg-center z-0 opacity-10" 
-          style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80")',
-            backgroundBlendMode: 'soft-light'
-          }}
-        />
+      <div className="min-h-screen bg-gradient-to-b from-pink-100 via-pink-200 to-white text-gray-800 relative overflow-hidden">
+        {/* Animated background effects */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          {/* Neon gradients */}
+          <div className="absolute w-[400px] h-[400px] bg-gradient-to-br from-pink-400 via-purple-400 to-blue-400 rounded-full blur-3xl opacity-60 animate-pulse -top-10 -left-20"></div>
+          <div className="absolute w-[500px] h-[500px] bg-gradient-to-br from-yellow-300 via-pink-400 to-purple-400 rounded-full blur-3xl opacity-50 animate-pulse-slower -bottom-20 -right-20"></div>
+          {/* Small floating particles */}
+          <div className="absolute inset-0">
+            {Array(20)
+              .fill(0)
+              .map((_, i) => (
+                <div
+                  key={i}
+                  className={`absolute w-[20px] h-[20px] bg-gradient-to-br from-pink-400 to-purple-400 rounded-full blur-xl opacity-40 animate-float`}
+                  style={{
+                    top: `${Math.random() * 100}%`,
+                    left: `${Math.random() * 100}%`,
+                    animationDuration: `${Math.random() * 3 + 2}s`,
+                  }}
+                ></div>
+              ))}
+          </div>
+        </div>
+
+        {/* App Content */}
         <div className="relative z-10">
           <Toaster position="top-right" />
-          <Header 
-            isWalletConnected={!!address} 
+          <Header
+            isWalletConnected={!!address}
             onConnectWallet={connectSolanaWallet}
             isConnecting={isConnecting}
             walletAddress={address}
             isVerified={isVerified}
           />
           <Routes>
-            <Route path="/" element={<HomePage isWalletConnected={!!address} isVerified={isVerified} />} />
+            <Route
+              path="/"
+              element={<HomePage isWalletConnected={!!address} isVerified={isVerified} />}
+            />
             <Route path="/roadmap" element={<RoadmapPage />} />
-            <Route 
-              path="/referrals" 
+            <Route
+              path="/referrals"
               element={
-                <ReferralPage 
-                  isWalletConnected={!!address} 
-                  walletAddress={address} 
+                <ReferralPage
+                  isWalletConnected={!!address}
+                  walletAddress={address}
                   isVerified={isVerified}
                 />
-              } 
+              }
             />
           </Routes>
           <Footer />
