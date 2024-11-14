@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 
 interface ProductShowcaseProps {
   isWalletConnected: boolean;
-  isVerified: boolean;
 }
 
-function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps) {
+function ProductShowcase({ isWalletConnected }: ProductShowcaseProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const characters = [
@@ -53,19 +52,8 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
       return (
         <button className="bg-red-100 cursor-not-allowed w-full py-3 rounded-lg flex items-center justify-center space-x-2">
           <Lock className="w-5 h-5" />
-          <span>REVENUE SHARE</span>
+          <span>Connect Wallet to Access</span>
         </button>
-      );
-    }
-
-    if (!isVerified) {
-      return (
-        <Link to="/referrals" className="w-full">
-          <button className="bg-red-100 hover:bg-pink-600 w-full py-3 rounded-lg flex items-center justify-center space-x-2">
-            <Lock className="w-5 h-5" />
-            <span>Enter Referral Code to Access</span>
-          </button>
-        </Link>
       );
     }
 
@@ -83,9 +71,9 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
     <section className="py-20 container mx-auto px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-pink-900">Powerful Sentient AiGENT NAMI</h2>
+          <h2 className="text-4xl font-bold mb-4 text-pink-900">Powerful Sentient AIgent NAMI</h2>
           <p className="text-pink-800 max-w-2xl mx-auto">
-             Find out! Connect wallet to access, invite friends, PVP on leaderboards, Rev share, degen powered Sentient is Here! Sail into the crypto seas with your favorite One Piece crew members, powered by next-gen AI.
+            Dive into the Solana ecosystem with NAMI, your sentient AIgent, powered by advanced AGI and LLMs optimized for meme coin trends and Solana analytics. Unlock exclusive features by connecting your wallet—track the hottest meme coins, dominate PVP leaderboards, earn rewards through decentralized rev-sharing, and sail into Solana's blazing-fast blockchain. Empower your degen spirit with cutting-edge AI insights, and let NAMI guide you to meme coin supremacy!
           </p>
         </div>
 
@@ -96,7 +84,7 @@ function ProductShowcase({ isWalletConnected, isVerified }: ProductShowcaseProps
               <h3 className="text-2xl font-bold text-pink-900">UNLOCK NAMI</h3>
             </div>
             <p className="text-pink-800 mb-6">
-              Chat with AI-powered One Piece characters for insights, laughs, and a bit of adventure!
+              Chat with AI-powered ANIME characters for insights, laughs, and a bit of adventure!
             </p>
             {getActionButton(characters[currentSlide])}
           </div>

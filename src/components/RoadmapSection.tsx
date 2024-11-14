@@ -4,51 +4,57 @@ import { CheckCircle, Circle } from 'lucide-react';
 function RoadmapSection() {
   const milestones = [
     {
-      title: 'Phase 1: Genesis Launch with Referral and Invite-Based Access',
-      description: `Website launch with social media channels and Nami AI release. 
-                    Exclusive Access through Invites: Limit initial access to the chatbot by making it invite-only. Users can invite a set number of friends to gain access, creating a sense of exclusivity and encouraging early users to share within their network. 
-                    Referral Rewards System: Create a referral score that rewards users for each successful invite. Rewards could include early access to new features, digital collectibles, or badges. Display a leaderboard to highlight top referrers. 
-                    Special Perks for Early Adopters: Grant early adopters unique privileges like exclusive interactions with Nami AI or priority access to future characters and features, including limited-edition digital badges for those reaching a referral milestone.`,
+      title: 'Phase 1: Genesis Launch and Community Seeding (0-3 Months)',
+      description: `Launch QuantBot.ai with a focus on exclusivity and strong community foundations:
+                    - **Invite-Only Genesis Access**: Restrict initial access to the chatbot via exclusive invites to create hype and exclusivity.
+                    - **Referral Rewards**: Implement a referral leaderboard with crypto-based incentives such as digital collectibles, token airdrops, or exclusive NFTs for top contributors.
+                    - **Early Adopter Privileges**: Provide unique interactions, priority access to future releases, and early feature testing for early adopters. 
+                    - **Social Media Domination**: Roll out a multi-channel presence across Twitter, Discord, Telegram, and Instagram to build momentum and engagement.`,
       completed: true,
     },
     {
-      title: 'Phase 2: Expanding the Crew (Next 3-6 Months)',
-      description: `Second Character Release: Introduce Zoro AI as the “Technical Analyst.”
-                    Exclusive Content Access: Unlock unique conversations or insights when users interact with both Nami and Zoro.
-                    Community Voting: Launch a poll to let users vote on the next character from One Piece.
-                    Collaborative Events: Host events where Nami and Zoro interact together, enhancing the sense of a growing world.`,
+      title: 'Phase 2: Expanding the Crew and Ecosystem (3-6 Months)',
+      description: `Grow the ecosystem by introducing new features and characters:
+                    - **Zoro AI Release**: Launch Zoro as a “Technical Analyst” AI, providing advanced crypto trading insights.
+                    - **Dynamic Interactions**: Enable cross-character conversations where Nami and Zoro collaborate on market insights.
+                    - **Community Voting**: Launch a poll for users to decide the next character, driving engagement and ownership.
+                    - **Gamified Leaderboards**: Introduce a gamified system where users earn points for referrals, activity, or usage, redeemable for exclusive rewards.`,
       completed: false,
     },
     {
-      title: 'Phase 3: Expanding Beyond One Piece (6-9 Months)',
-      description: `Introduction of First Naruto Character: Release a Naruto character like Naruto AI or Sasuke AI.
-                    Cross-Anime Collaboration: Host themed events blending One Piece and Naruto characters, e.g., “Market Battle” for varied perspectives.
-                    User-Exclusive Rewards and NFT Drops: Offer digital collectibles, badges, or NFTs to active users.
-                    Platform Expansion: Integrate chatbot access on mobile apps, Discord, and Telegram.`,
+      title: 'Phase 3: Multi-Anime Collaboration and Crypto Utility (6-9 Months)',
+      description: `Expand beyond One Piece to attract a broader audience:
+                    - **Naruto AI Launch**: Introduce Naruto or Sasuke AI to provide motivational or risk management advice tailored to users' trading habits.
+                    - **Cross-Anime Events**: Host themed events like “Crypto Showdowns,” where characters from One Piece and Naruto offer competing insights.
+                    - **User Utility Rewards**: Reward active users with unique NFTs, badges, or even governance tokens for platform engagement.
+                    - **Mobile and Cross-Platform Access**: Launch QuantBot.ai on mobile apps, Discord, and Telegram to reach a wider audience.`,
       completed: false,
     },
     {
-      title: 'Phase 4: Building a Multi-Character World (9-12 Months)',
-      description: `Release Additional Characters Based on Community Votes.
-                    Themed Quests and Missions: Introduce character-specific “quests” that allow users to earn points and unlock interactions or complete a “Crypto Knowledge Journey.”
-                    Virtual Events and AMAs: Host live Q&As where characters update on trending topics.
-                    User Recognition Program: Highlight top users with badges or titles based on engagement milestones.`,
+      title: 'Phase 4: Multi-Character Universe and Advanced Engagement (9-12 Months)',
+      description: `Develop a vibrant multi-character ecosystem:
+                    - **Community-Powered Releases**: Let users vote for the next character lineup, including Dragon Ball or Attack on Titan themes.
+                    - **Character Missions and Quests**: Gamify the experience with character-specific “crypto missions” that unlock rewards, interactions, and insights.
+                    - **Exclusive AMA Sessions**: Host live Q&As with characters, providing real-time insights on crypto trends while building community trust.
+                    - **User Recognition**: Reward top users with exclusive titles, governance rights, or collectible NFTs.`,
       completed: false,
     },
     {
-      title: 'Phase 5: Community Milestones and Partnerships (12-18 Months)',
-      description: `Introduce Limited-Edition Characters from Attack on Titan or Dragon Ball as time-limited chatbots.
-                    Official Partnership Program: Form partnerships with anime influencers and crypto-themed projects.
-                    Community Rewards Program: Launch a referral program to earn points that unlock exclusive content and avatars.
-                    Voting for the Next Anime Series: Host a community vote for the next anime series integration.`,
+      title: 'Phase 5: Partnerships, Tokenization, and Rewards (12-18 Months)',
+      description: `Capitalize on the platform’s growth with strategic expansions:
+                    - **Exclusive Partnerships**: Collaborate with anime influencers, crypto projects, and NFT artists to enhance reach and credibility.
+                    - **Tokenized Ecosystem**: Introduce a governance token for rewards and voting, enabling community-driven decision-making.
+                    - **Limited-Edition Drops**: Release time-limited characters or collectible NFTs tied to special events or partnerships.
+                    - **Rewards and Loyalty Programs**: Expand the referral and activity-based reward systems with tangible crypto-based benefits.`,
       completed: false,
     },
     {
-      title: 'Phase 6: Entering the Metaverse (18-24 Months)',
-      description: `Launch AR/VR Experiences for virtual and augmented reality interactions with characters.
-                    Special Events and Anniversaries: Host annual events with limited-time characters and milestone rewards.
-                    DAO for Governance: Enable community voting on major decisions like new character releases and feature additions.
-                    Real-World Events and Merchandise: Host events where users can meet the team and access exclusive merchandise.`,
+      title: 'Phase 6: Entering the Metaverse and Real-World Integration (18-24 Months)',
+      description: `Bridge virtual and physical worlds for immersive user experiences:
+                    - **AR/VR Chatbot Integration**: Enable virtual interactions with AI characters in metaverse platforms.
+                    - **QuantBot DAO**: Establish a decentralized governance system, allowing the community to vote on new character releases, platform features, and partnerships.
+                    - **Merchandise and Events**: Launch exclusive QuantBot merchandise and host global community events to strengthen the brand and community.
+                    - **Cross-Chain Expansion**: Extend AI character capabilities to other blockchains beyond Solana, such as Ethereum, Polygon, and Binance Smart Chain.`,
       completed: false,
     },
   ];
