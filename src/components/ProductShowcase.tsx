@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Bot, MessageSquare, ChevronLeft, ChevronRight, Lock, Hourglass } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import namiImage from '../assets/Nami.jpeg'
+import namiImage from '../assets/nami.jpeg'
+import luffyImage from '../assets/luffy.jpeg'
+import zoroImage from '../assets/zoro.jpeg'
 
 interface ProductShowcaseProps {
   isWalletConnected: boolean;
@@ -20,13 +22,13 @@ function ProductShowcase({ isWalletConnected }: ProductShowcaseProps) {
     {
       name: "Luffy",
       description: "Captain of the degen seas, with a boundless thirst for moonshots!",
-      image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80",
+      image: luffyImage,
       comingSoon: true,
     },
     {
       name: "Zoro",
       description: "Your dedicated HODLer and unstoppable warrior of the bull runs.",
-      image: "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?auto=format&fit=crop&q=80",
+      image: zoroImage,
       comingSoon: true,
     },
   ];
