@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Bot, MessageSquare, ChevronLeft, ChevronRight, Lock, Hourglass } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import namiImage from '../assets/nami.jpeg'
+import namiImage from '../assets/Nami.jpeg'
 
 interface ProductShowcaseProps {
   isWalletConnected: boolean;
