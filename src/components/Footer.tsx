@@ -39,14 +39,14 @@ function Footer() {
             <h4 className="font-bold mb-4 text-pink-900">Connect With Us</h4>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://x.com/ciphernami/"
                 className="text-pink-800 hover:text-pink-500 transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://t.me/NamiTheAgi"
                 className="text-pink-800 hover:text-pink-500 transition-colors"
                 aria-label="Telegram"
               >

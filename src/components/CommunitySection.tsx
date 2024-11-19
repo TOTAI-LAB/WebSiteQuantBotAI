@@ -19,6 +19,7 @@ function CommunitySection() {
             description: "Follow us for the latest updates",
             action: "Follow",
             color: "bg-pink-500",
+            link: "https://x.com/ciphernami/", // Replace with your Twitter URL
           },
           {
             icon: <MessageSquare className="w-8 h-8 text-pink-500" />,
@@ -26,6 +27,7 @@ function CommunitySection() {
             description: "Join our Telegram community",
             action: "Join Chat",
             color: "bg-pink-500",
+            link: "https://t.me/NamiTheAgi", // Replace with your Telegram URL
           },
         ].map((platform, index) => (
           <div
@@ -35,11 +37,14 @@ function CommunitySection() {
             <div className="mb-6">{platform.icon}</div>
             <h3 className="text-xl font-bold mb-2 text-pink-900">{platform.title}</h3>
             <p className="text-pink-800 mb-6">{platform.description}</p>
-            <button
-              className={`px-6 py-2 rounded-lg ${platform.color} text-white hover:opacity-90 transition-opacity`}
+            <a
+              href={platform.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-block px-6 py-2 rounded-lg ${platform.color} text-white hover:opacity-90 transition-opacity`}
             >
               {platform.action}
-            </button>
+            </a>
           </div>
         ))}
       </div>
