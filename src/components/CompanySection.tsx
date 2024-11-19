@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaBrain, FaBolt, FaCode, FaAtom, FaShieldAlt, FaInfinity, FaStar, FaGlobe } from 'react-icons/fa'; // Updated to use react-icons
-
+import companyImage from '../assets/company.jpeg'
 function CompanySection() {
   const features = [
     {
@@ -94,7 +94,7 @@ function CompanySection() {
           </div>
             <div className="relative h-[300px] rounded-xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80"
+                src={companyImage}
                 alt="AI Technology"
                 className="absolute inset-0 w-full h-full object-cover"
               />
