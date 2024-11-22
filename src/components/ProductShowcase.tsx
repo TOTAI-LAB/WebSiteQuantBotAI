@@ -76,7 +76,7 @@ function ProductShowcase({ isWalletConnected }: ProductShowcaseProps) {
     <section className="py-20 container mx-auto px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-pink-900">Powerful Sentient AIgent NAMI</h2>
+          <h2 className="text-4xl font-bold mb-4 text-pink-900">Powerful Sentient AIgents NAMI & LUFFY</h2>
           <p className="text-pink-800 max-w-2xl mx-auto">
             Set sail with NAMI & LUFFY, your dynamic AIgents powered by advanced AGI and LLMs! Nami, the meme coin navigator, charts the course for the hottest trends and Solana analytics, while Luffy, the fearless Bitcoin captain, steers you straight toward crypto’s ultimate treasure—BTC. Unlock exclusive features by connecting your wallet: track top meme coins with Nami, dominate PVP leaderboards, and earn rewards through decentralized rev-sharing. Let Luffy guide your journey to Bitcoin supremacy while Nami fuels your degen spirit with cutting-edge insights. Together, they’ll help you conquer the crypto seas!
           </p>
@@ -86,7 +86,7 @@ function ProductShowcase({ isWalletConnected }: ProductShowcaseProps) {
           <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg border border-pink-200">
             <div className="flex items-center space-x-4 mb-6">
               <Bot className="w-8 h-8 text-pink-500" />
-              <h3 className="text-2xl font-bold text-pink-900">UNLOCK AIgent</h3>
+              <h3 className="text-2xl font-bold text-pink-900">UNLOCK AIgents</h3>
             </div>
             <p className="text-pink-800 mb-6">
               Chat with AI-powered ANIME characters for insights, laughs, and a bit of adventure!
